@@ -1,2 +1,7 @@
-# cv-generator-life-patcher
+# Life Patcher
+
 Dependency manager for the LifeSpan family of products
+
+---
+
+© 1984 – 2021 [Marinov](http://marinov.ml "Marinov"). All rights reserved
