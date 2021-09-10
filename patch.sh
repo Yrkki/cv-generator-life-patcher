@@ -11,7 +11,7 @@ pwd
 ls -aF --color=always
 echo
 
-cvgRoot=$pwd/'../..'
+cvgRoot=$pwd/'..'
 
 # switch channel
 # channel='next'
