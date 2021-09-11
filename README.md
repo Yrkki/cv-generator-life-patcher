@@ -1,6 +1,6 @@
 # Life Patcher
 
-Dependency manager for the LifeSpan family of products
+Dependency manager for the LifeSpan℠. family of products
 
 ---
 
