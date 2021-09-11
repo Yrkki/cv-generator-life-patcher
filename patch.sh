@@ -41,10 +41,10 @@ npm outdated -g
 # # Whether to do a major update
 # 0 - Minor
 # 1 - Major
-updateMajor=0
+updateMajor=1
 
-# apps=(cv-generator-life-adapter project-server cv-generator-life-map cv-generator-fe)
-apps=(cv-generator-life-adapter project-server)
+apps=(cv-generator-life-adapter project-server cv-generator-life-map cv-generator-fe)
+# apps=(cv-generator-life-adapter project-server)
 # apps=(cv-generator-life-map)
 
 for i in "${!apps[@]}"; do
@@ -95,6 +95,18 @@ for i in "${!apps[@]}"; do
     echo -ne $'\033[0m'
 
     echo y | npx snyk wizard
+done
+
+ngApps=(cv-generator-life-adapter project-server)
+for i in "${!ngApps[@]}"; do
+    cd $cvgRoot/${ngApps[$i]}
+    echo $'\033[1;30m'
+    pwd
+    echo -ne $'\033[0m'
+
+    echo Restore Angular pinned dependencies...
+    npm install --save-dev typescript@4.3
+    echo
 done
 
 # apps=(cv-generator-life-adapter project-server)
