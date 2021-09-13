@@ -97,7 +97,7 @@ for i in "${!apps[@]}"; do
     echo y | npx snyk wizard
 done
 
-ngApps=(cv-generator-life-adapter project-server)
+ngApps=(cv-generator-life-map cv-generator-fe)
 for i in "${!ngApps[@]}"; do
     cd $cvgRoot/${ngApps[$i]}
     echo $'\033[1;30m'
