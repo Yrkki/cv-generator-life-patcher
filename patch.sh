@@ -88,16 +88,8 @@ for i in "${!apps[@]}"; do
     # npx snyk protect
     npm outdated
 done
-for i in "${!apps[@]}"; do
-    cd $cvgRoot/${apps[$i]}
-    echo $'\033[1;30m'
-    pwd
-    echo -ne $'\033[0m'
 
-    echo y | npx snyk wizard
-done
-
-ngApps=(cv-generator-life-adapter project-server)
+ngApps=(cv-generator-life-map cv-generator-fe)
 for i in "${!ngApps[@]}"; do
     cd $cvgRoot/${ngApps[$i]}
     echo $'\033[1;30m'
@@ -109,8 +101,16 @@ for i in "${!ngApps[@]}"; do
     echo
 done
 
-# apps=(cv-generator-life-adapter project-server)
+for i in "${!apps[@]}"; do
+    cd $cvgRoot/${apps[$i]}
+    echo $'\033[1;30m'
+    pwd
+    echo -ne $'\033[0m'
 
+    echo y | npx snyk wizard
+done
+
+# apps=(cv-generator-life-adapter project-server)
 for i in "${!apps[@]}"; do
     cd $cvgRoot/${apps[$i]}
     echo $'\033[1;30m'
