@@ -89,17 +89,17 @@ for i in "${!apps[@]}"; do
     npm outdated
 done
 
-ngApps=(cv-generator-life-map cv-generator-fe)
-for i in "${!ngApps[@]}"; do
-    cd $cvgRoot/${ngApps[$i]}
-    echo $'\033[1;30m'
-    pwd
-    echo -ne $'\033[0m'
+# ngApps=(cv-generator-life-map cv-generator-fe)
+# for i in "${!ngApps[@]}"; do
+#     cd $cvgRoot/${ngApps[$i]}
+#     echo $'\033[1;30m'
+#     pwd
+#     echo -ne $'\033[0m'
 
-    echo Restore Angular pinned dependencies...
-    npm install --save-dev typescript@4.3
-    echo
-done
+#     echo Restore Angular pinned dependencies...
+#     npm install --save-dev typescript@4.3
+#     echo
+# done
 
 for i in "${!apps[@]}"; do
     cd $cvgRoot/${apps[$i]}
