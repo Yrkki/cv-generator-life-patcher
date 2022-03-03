@@ -97,7 +97,7 @@ for i in "${!ngApps[@]}"; do
     echo -ne $'\033[0m'
 
     echo Restore Angular pinned dependencies...
-    npm install --save-dev typescript@4.4
+    npm install --save-dev typescript@4.5
     echo
 done
 
