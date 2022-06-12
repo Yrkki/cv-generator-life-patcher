@@ -22,7 +22,8 @@ else
     next=''
 fi
 
-# update global tools
+echo Updating global tools...
+echo ------------------------------------------------------
 npm outdated -g
 # node -v
 # # npm cache clean -f
@@ -37,6 +38,7 @@ else
 fi
 # npm update -g heroku
 npm outdated -g
+echo
 
 # # Whether to do a major update
 # 0 - Minor
@@ -47,6 +49,8 @@ apps=(cv-generator-life-adapter project-server cv-generator-life-map cv-generato
 # apps=(cv-generator-life-adapter project-server)
 # apps=(cv-generator-life-map)
 
+echo Pulling...
+echo ------------------------------------------------------
 for i in "${!apps[@]}"; do
     cd $cvgRoot/${apps[$i]}
     echo $'\033[1;30m'
@@ -56,6 +60,8 @@ for i in "${!apps[@]}"; do
     echo
 done
 
+echo Updating packages...
+echo ------------------------------------------------------
 for i in "${!apps[@]}"; do
     cd $cvgRoot/${apps[$i]}
     echo $'\033[1;30m'
@@ -88,19 +94,31 @@ for i in "${!apps[@]}"; do
     # npx snyk protect
     npm outdated
 done
+echo
 
-# ngApps=(cv-generator-life-map cv-generator-fe)
-# for i in "${!ngApps[@]}"; do
-#     cd $cvgRoot/${ngApps[$i]}
-#     echo $'\033[1;30m'
-#     pwd
-#     echo -ne $'\033[0m'
+echo Restoring pinned dependencies...
+echo ------------------------------------------------------
+ngApps=(cv-generator-life-map cv-generator-fe)
+for i in "${!ngApps[@]}"; do
+    cd $cvgRoot/${ngApps[$i]}
+    echo $'\033[1;30m'
+    pwd
+    echo -ne $'\033[0m'
 
-#     echo Restore Angular pinned dependencies...
-#     npm install --save-dev typescript@4.6
-#     echo
-# done
+    # echo Restoring typescript...
+    # npm install --save-dev typescript@4.7
 
+    # echo Restoring @angular-eslint \(x5\)...
+    # depsAngularEslint=(builder eslint-plugin eslint-plugin-template schematics template-parser)
+    # for dep in "${!depsAngularEslint[@]}"; do
+    #     npm install --save-dev @angular-eslint/${depsAngularEslint[$dep]}@^14.0.0-alpha.0
+    # done
+
+    echo
+done
+
+echo Fixing vulnerabilities...
+echo ------------------------------------------------------
 for i in "${!apps[@]}"; do
     cd $cvgRoot/${apps[$i]}
     echo $'\033[1;30m'
@@ -109,7 +127,10 @@ for i in "${!apps[@]}"; do
 
     echo y | npx snyk wizard
 done
+echo
 
+echo Pushing...
+echo ------------------------------------------------------
 # apps=(cv-generator-life-adapter project-server)
 for i in "${!apps[@]}"; do
     cd $cvgRoot/${apps[$i]}
