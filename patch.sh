@@ -96,6 +96,24 @@ for i in "${!apps[@]}"; do
 done
 echo
 
+echo Updating next version dependent packages...
+echo ------------------------------------------------------
+ngApps=(cv-generator-life-map cv-generator-fe)
+for i in "${!ngApps[@]}"; do
+    cd $cvgRoot/${ngApps[$i]}
+    echo $'\033[1;30m'
+    pwd
+    echo -ne $'\033[0m'
+
+    echo Updating @angular-eslint \(x5\)...
+    depsNext=(@angular-eslint/builder @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/schematics @angular-eslint/template-parser)
+    for dep in "${!depsNext[@]}"; do
+        npm install --save-dev ${depsNext[$dep]}@next
+    done
+
+    echo
+done
+
 echo Restoring pinned dependencies...
 echo ------------------------------------------------------
 ngApps=(cv-generator-life-map cv-generator-fe)
@@ -107,12 +125,6 @@ for i in "${!ngApps[@]}"; do
 
     # echo Restoring typescript...
     # npm install --save-dev typescript@4.7
-
-    # echo Restoring @angular-eslint \(x5\)...
-    # depsAngularEslint=(builder eslint-plugin eslint-plugin-template schematics template-parser)
-    # for dep in "${!depsAngularEslint[@]}"; do
-    #     npm install --save-dev @angular-eslint/${depsAngularEslint[$dep]}@^14.0.0-alpha.0
-    # done
 
     echo
 done
