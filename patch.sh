@@ -105,11 +105,11 @@ for i in "${!ngApps[@]}"; do
     pwd
     echo -ne $'\033[0m'
 
-    echo Updating @angular-eslint \(x5\)...
-    depsNext=(@angular-eslint/builder @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/schematics @angular-eslint/template-parser)
-    for dep in "${!depsNext[@]}"; do
-        npm install --save-dev ${depsNext[$dep]}@next
-    done
+    # echo Updating @angular-eslint \(x5\)...
+    # depsNext=(@angular-eslint/builder @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/schematics @angular-eslint/template-parser)
+    # for dep in "${!depsNext[@]}"; do
+    #     npm install --save-dev ${depsNext[$dep]}@next
+    # done
 
     echo
 done
