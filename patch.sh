@@ -40,6 +40,11 @@ fi
 npm outdated -g
 echo
 
+echo Updating python dependent tools...
+echo ------------------------------------------------------
+pip3 install -U checkov
+echo
+
 # # Whether to do a major update
 # 0 - Minor
 # 1 - Major
@@ -129,17 +134,19 @@ for i in "${!ngApps[@]}"; do
     echo
 done
 
-echo Fixing vulnerabilities...
-echo ------------------------------------------------------
-for i in "${!apps[@]}"; do
-    cd $cvgRoot/${apps[$i]}
-    echo $'\033[1;30m'
-    pwd
-    echo -ne $'\033[0m'
+# # Deprecated
+# # # https://github.com/snyk/cli/tree/master/packages/snyk-protect?utm_medium=CLI&utm_source=Snyk-CLI#readme
+# echo Fixing vulnerabilities...
+# echo ------------------------------------------------------
+# for i in "${!apps[@]}"; do
+#     cd $cvgRoot/${apps[$i]}
+#     echo $'\033[1;30m'
+#     pwd
+#     echo -ne $'\033[0m'
 
-    echo y | npx snyk wizard
-done
-echo
+#     echo y | npx snyk wizard
+# done
+# echo
 
 echo Pushing...
 echo ------------------------------------------------------
