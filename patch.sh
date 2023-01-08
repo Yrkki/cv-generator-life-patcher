@@ -37,11 +37,13 @@ else
     npm update -g @angular/cli@latest
 fi
 # npm update -g heroku
+heroku update
 npm outdated -g
 echo
 
 echo Updating python dependent tools...
 echo ------------------------------------------------------
+python.exe -m pip install --upgrade pip
 pip3 install -U checkov
 echo
 
@@ -128,8 +130,15 @@ for i in "${!ngApps[@]}"; do
     pwd
     echo -ne $'\033[0m'
 
-    # echo Restoring typescript...
-    # npm install --save-dev typescript@4.7
+    echo Pinning typescript...
+    npm install --save-dev typescript@^4.8.4
+
+    echo Pinning chart.js...
+    npm install --save chart.js@^3.9.1
+
+    echo
+    echo Pinning heroku...
+    npm install --save heroku@^7.7.8
 
     echo
 done
