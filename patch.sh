@@ -130,15 +130,15 @@ for i in "${!ngApps[@]}"; do
     pwd
     echo -ne $'\033[0m'
 
-    echo Pinning typescript...
-    npm install --save-dev typescript@^4.8.4
+    # echo Pinning typescript...
+    # npm install --save-dev typescript@^4.8.4
 
-    echo Pinning chart.js...
-    npm install --save chart.js@^3.9.1
+    # echo Pinning chart.js...
+    # npm install --save chart.js@^3.9.1
 
-    echo
-    echo Pinning heroku...
-    npm install --save heroku@^7.7.8
+    # echo
+    # echo Pinning heroku...
+    # npm install --save heroku@~7.3.0
 
     echo
 done
@@ -169,6 +169,23 @@ for i in "${!apps[@]}"; do
     git add .
     git commit -am 'ci(update): bump dependencies'
     git push
+    echo
+done
+
+minutes=40
+seconds=$(($minutes * 60))
+echo Waiting $minutes minute\(s\) for changelog to be compiled on the server...
+echo ------------------------------------------------------
+sleep $seconds
+
+echo Pulling changelog...
+echo ------------------------------------------------------
+for i in "${!apps[@]}"; do
+    cd $cvgRoot/${apps[$i]}
+    echo $'\033[1;30m'
+    echo -ne $'\033[0m'
+
+    git pull
     echo
 done
 
