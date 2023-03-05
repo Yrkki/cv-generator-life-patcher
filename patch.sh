@@ -11,6 +11,12 @@ pwd
 ls -aF --color=always
 echo
 
+echo Dependencies...
+echo ------------------------------------------------------
+declare -A dependencies=([tick]=../cv-generator-fe/scripts/tick.sh)
+for key in "${!dependencies[@]}"; do echo "$key: ${dependencies[$key]}"; done
+echo
+
 cvgRoot=$pwd/'..'
 
 # switch channel
@@ -173,10 +179,16 @@ for i in "${!apps[@]}"; do
 done
 
 minutes=40
-seconds=$(($minutes * 60))
 echo Waiting $minutes minute\(s\) for changelog to be compiled on the server...
 echo ------------------------------------------------------
-sleep $seconds
+tick=${dependencies["tick"]}
+if [[ -f $tick ]]; then
+    echo Executing $tick...
+    . ${dependencies["tick"]} $minutes
+else
+    echo $tick not found. Sleeping $minutes minute\(s\)...
+    sleep $(($minutes * 60))
+fi
 
 echo Pulling changelog...
 echo ------------------------------------------------------
