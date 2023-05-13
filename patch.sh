@@ -137,7 +137,7 @@ for i in "${!ngApps[@]}"; do
     echo -ne $'\033[0m'
 
     # echo Pinning typescript...
-    # npm install --save-dev typescript@^4.8.4
+    # npm install --save-dev ty pescript@^5.0
 
     # echo Pinning chart.js...
     # npm install --save chart.js@^3.9.1
