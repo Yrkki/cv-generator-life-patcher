@@ -136,15 +136,25 @@ for i in "${!ngApps[@]}"; do
     pwd
     echo -ne $'\033[0m'
 
-    # echo Pinning typescript...
-    # npm install --save-dev ty pescript@^5.0
-
+    echo Pinning dependencies...
     # echo Pinning chart.js...
     # npm install --save chart.js@^3.9.1
-
     # echo
+
     # echo Pinning heroku...
     # npm install --save heroku@~7.3.0
+    # echo
+
+    echo
+
+    echo Pinning devDependencies...
+    # echo Pinning typescript...
+    # npm install --save-dev ty pescript@^5.0
+    # echo
+
+    echo Pinning jasmine...
+    npm install --save-dev jasmine-core@^4.0.0
+    echo
 
     echo
 done
