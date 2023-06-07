@@ -148,13 +148,13 @@ for i in "${!ngApps[@]}"; do
     echo
 
     echo Pinning devDependencies...
-    # echo Pinning typescript...
-    # npm install --save-dev ty pescript@^5.0
-    # echo
-
-    echo Pinning jasmine...
-    npm install --save-dev jasmine-core@^4.0.0
+    echo Pinning typescript...
+    npm install --save-dev typescript@^5.0
     echo
+
+    # echo Pinning jasmine...
+    # npm install --save-dev jasmine-core@^4.0.0
+    # echo
 
     echo
 done
