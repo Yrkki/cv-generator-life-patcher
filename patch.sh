@@ -145,11 +145,15 @@ for i in "${!ngApps[@]}"; do
     # npm install --save heroku@~7.3.0
     # echo
 
+    echo Pinning zone.js...
+    npm install --save zone.js@^0.13 --force
+    echo
+
     echo
 
     echo Pinning devDependencies...
     echo Pinning typescript...
-    npm install --save-dev typescript@^5.0
+    npm install --save-dev typescript@^5.0 --force
     echo
 
     # echo Pinning jasmine...
