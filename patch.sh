@@ -37,6 +37,7 @@ npm outdated -g
 # n latest
 # node -v
 npm update -g
+npm ls -g --depth=1
 if [ $channel == 'next' ]; then
     npm update -g @angular/cli@next
 else
@@ -145,15 +146,19 @@ for i in "${!ngApps[@]}"; do
     # npm install --save heroku@~7.3.0
     # echo
 
-    echo Pinning zone.js...
-    npm install --save zone.js@^0.13 --force
-    echo
+    # echo Pinning zone.js...
+    # npm install --save zone.js@^0.13 --force
+    # echo
 
     echo
 
     echo Pinning devDependencies...
+    echo Pinning bootstrap...
+    npm install --save bootstrap@^4.6 --force
+    echo
+
     echo Pinning typescript...
-    npm install --save-dev typescript@^5.0 --force
+    npm install --save-dev typescript@^5.8 --force
     echo
 
     # echo Pinning jasmine...
