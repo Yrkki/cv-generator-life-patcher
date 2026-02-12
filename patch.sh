@@ -39,9 +39,11 @@ npm outdated -g
 npm update -g
 npm ls -g --depth=1
 if [ $channel == 'next' ]; then
-    npm update -g @angular/cli@next
+    # npm update -g @angular/cli@next
+    npm install -g @angular/cli@next
 else
-    npm update -g @angular/cli@latest
+    # npm update -g @angular/cli@latest
+    npm install -g @angular/cli@latest
 fi
 # npm update -g heroku
 heroku update
@@ -146,24 +148,24 @@ for i in "${!ngApps[@]}"; do
     # npm install --save heroku@~7.3.0
     # echo
 
-    # echo Pinning zone.js...
-    # npm install --save zone.js@^0.13 --force
-    # echo
-
     echo
 
-    echo Pinning devDependencies...
     echo Pinning bootstrap...
     npm install --save bootstrap@^4.6 --force
     echo
 
-    echo Pinning typescript...
-    npm install --save-dev typescript@^5.8 --force
+    echo Pinning jQuery...
+    npm install --save jquery@^3 --force
     echo
 
-    # echo Pinning jasmine...
-    # npm install --save-dev jasmine-core@^4.0.0
+    echo Pinning devDependencies...
+    # echo Pinning typescript...
+    # npm install --save-dev typescript@^5.8 --force
     # echo
+
+    echo Pinning jasmine...
+    npm install --save-dev jasmine-core@^5
+    echo
 
     echo
 done
