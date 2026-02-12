@@ -130,7 +130,7 @@ for i in "${!ngApps[@]}"; do
     echo
 done
 
-echo Restoring pinned dependencies...
+echo Pinning runtime dependencies...
 echo ------------------------------------------------------
 ngApps=(cv-generator-life-map cv-generator-fe)
 for i in "${!ngApps[@]}"; do
@@ -139,7 +139,6 @@ for i in "${!ngApps[@]}"; do
     pwd
     echo -ne $'\033[0m'
 
-    echo Pinning dependencies...
     # echo Pinning chart.js...
     # npm install --save chart.js@^3.9.1
     # echo
@@ -147,8 +146,6 @@ for i in "${!ngApps[@]}"; do
     # echo Pinning heroku...
     # npm install --save heroku@~7.3.0
     # echo
-
-    echo
 
     echo Pinning bootstrap...
     npm install --save bootstrap@^4.6 --force
@@ -158,13 +155,23 @@ for i in "${!ngApps[@]}"; do
     npm install --save jquery@^3 --force
     echo
 
-    echo Pinning devDependencies...
+    echo
+done
+
+echo Pinning development dependencies...
+echo ------------------------------------------------------
+ngApps=(cv-generator-life-map cv-generator-fe)
+for i in "${!ngApps[@]}"; do
     # echo Pinning typescript...
     # npm install --save-dev typescript@^5.8 --force
     # echo
 
     echo Pinning jasmine...
     npm install --save-dev jasmine-core@^5
+    echo
+
+    echo Pinning eslint...
+    npm install --save-dev eslint@^9
     echo
 
     echo
