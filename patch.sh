@@ -162,13 +162,13 @@ echo Pinning development dependencies...
 echo ------------------------------------------------------
 ngApps=(cv-generator-life-map cv-generator-fe)
 for i in "${!ngApps[@]}"; do
-    # echo Pinning typescript...
-    # npm install --save-dev typescript@^5.8 --force
-    # echo
-
-    echo Pinning jasmine...
-    npm install --save-dev jasmine-core@^5
+    echo Pinning typescript...
+    npm install --save-dev typescript@^5 --force
     echo
+
+    # echo Pinning jasmine...
+    # npm install --save-dev jasmine-core@^5
+    # echo
 
     echo Pinning eslint...
     npm install --save-dev eslint@^9
