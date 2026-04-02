@@ -69,6 +69,7 @@ echo Pulling...
 echo ------------------------------------------------------
 for i in "${!apps[@]}"; do
     cd $cvgRoot/${apps[$i]}
+
     echo $'\033[1;30m'
     echo -ne $'\033[0m'
 
@@ -80,6 +81,7 @@ echo Updating packages...
 echo ------------------------------------------------------
 for i in "${!apps[@]}"; do
     cd $cvgRoot/${apps[$i]}
+
     echo $'\033[1;30m'
     pwd
     echo -ne $'\033[0m'
@@ -135,6 +137,7 @@ echo ------------------------------------------------------
 ngApps=(cv-generator-life-map cv-generator-fe)
 for i in "${!ngApps[@]}"; do
     cd $cvgRoot/${ngApps[$i]}
+
     echo $'\033[1;30m'
     pwd
     echo -ne $'\033[0m'
@@ -162,6 +165,8 @@ echo Pinning development dependencies...
 echo ------------------------------------------------------
 ngApps=(cv-generator-life-map cv-generator-fe)
 for i in "${!ngApps[@]}"; do
+    cd $cvgRoot/${ngApps[$i]}
+
     echo Pinning typescript...
     npm install --save-dev typescript@^5 --force
     echo
@@ -183,6 +188,7 @@ done
 # echo ------------------------------------------------------
 # for i in "${!apps[@]}"; do
 #     cd $cvgRoot/${apps[$i]}
+
 #     echo $'\033[1;30m'
 #     pwd
 #     echo -ne $'\033[0m'
@@ -196,6 +202,7 @@ echo ------------------------------------------------------
 # apps=(cv-generator-life-adapter project-server)
 for i in "${!apps[@]}"; do
     cd $cvgRoot/${apps[$i]}
+
     echo $'\033[1;30m'
     pwd
     echo -ne $'\033[0m'
@@ -222,6 +229,7 @@ echo Pulling changelog...
 echo ------------------------------------------------------
 for i in "${!apps[@]}"; do
     cd $cvgRoot/${apps[$i]}
+
     echo $'\033[1;30m'
     echo -ne $'\033[0m'
 
